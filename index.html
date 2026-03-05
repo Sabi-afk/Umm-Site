@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hey You ❤️</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(270deg,#ff9a9e,#fad0c4,#fad0c4,#ffdde1);
+    background-size:800% 800%;
+    animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.card{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    max-width:400px;
+}
+
+h1{
+    margin-bottom:10px;
+}
+
+p{
+    color:#555;
+}
+
+button{
+    margin:10px;
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.yes{
+    background:#ff4d6d;
+    color:white;
+}
+
+.yes:hover{
+    transform:scale(1.1);
+}
+
+.maybe{
+    background:#ddd;
+}
+
+.maybe:hover{
+    transform:scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h1>Hey… 😊</h1>
+
+<p>
+Yesterday when we talked… something felt different.  
+Maybe it's crazy, maybe it's random…  
+but I kinda like you.
+</p>
+
+<p>
+So I made this little page just to ask you something.
+</p>
+
+<h3>Will you give us a chance?</h3>
+
+<button class="yes" onclick="yes()">Yes ❤️</button>
+<button class="maybe" onclick="maybe()">Maybe 🤭</button>
+
+<p id="response"></p>
+
+</div>
+
+<script>
+
+function yes(){
+document.getElementById("response").innerHTML =
+"Okay wow… now I'm officially smiling like an idiot 😭❤️";
+}
+
+function maybe(){
+document.getElementById("response").innerHTML =
+"Hmm… I'll take that as a 'convince me more' 😉";
+}
+
+</script>
+
+</body>
+</html>
