@@ -1,93 +1,109 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Hey You ❤️</title>
+<title>For u Nevaeh ❤️</title>
 
 <style>
+
 body{
-    margin:0;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(270deg,#ff9a9e,#fad0c4,#fad0c4,#ffdde1);
-    background-size:800% 800%;
-    animation: gradient 10s ease infinite;
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:Arial, sans-serif;
+background:linear-gradient(270deg,#ff758c,#ff7eb3,#ffd3a5,#fd6585);
+background-size:800% 800%;
+animation:bgMove 12s ease infinite;
+overflow:hidden;
 }
 
-@keyframes gradient{
+@keyframes bgMove{
 0%{background-position:0% 50%;}
 50%{background-position:100% 50%;}
 100%{background-position:0% 50%;}
 }
 
 .card{
-    background:white;
-    padding:40px;
-    border-radius:20px;
-    text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,0.2);
-    max-width:400px;
+background:white;
+padding:40px;
+border-radius:20px;
+text-align:center;
+max-width:420px;
+box-shadow:0 15px 40px rgba(0,0,0,0.2);
+z-index:2;
 }
 
 h1{
-    margin-bottom:10px;
+margin-bottom:10px;
 }
 
 p{
-    color:#555;
+color:#555;
 }
 
 button{
-    margin:10px;
-    padding:12px 25px;
-    border:none;
-    border-radius:25px;
-    font-size:16px;
-    cursor:pointer;
-    transition:0.3s;
+padding:12px 25px;
+border:none;
+border-radius:25px;
+font-size:16px;
+margin:10px;
+cursor:pointer;
+transition:.3s;
 }
 
 .yes{
-    background:#ff4d6d;
-    color:white;
+background:#ff4d6d;
+color:white;
 }
 
 .yes:hover{
-    transform:scale(1.1);
+transform:scale(1.1);
 }
 
-.maybe{
-    background:#ddd;
+.no{
+background:#ddd;
+position:relative;
 }
 
-.maybe:hover{
-    transform:scale(1.1);
+.heart{
+position:absolute;
+color:#ff4d6d;
+font-size:20px;
+animation:float 6s linear infinite;
 }
+
+@keyframes float{
+0%{transform:translateY(100vh);opacity:1;}
+100%{transform:translateY(-10vh);opacity:0;}
+}
+
 </style>
 </head>
 
 <body>
 
 <div class="card">
-<h1>Hey… 😊</h1>
+
+<h1 id="title"></h1>
 
 <p>
-Yesterday when we talked… something felt different.  
-Maybe it's crazy, maybe it's random…  
-but I kinda like you.
+Yesterday when we talked... something about it stayed in my head.
 </p>
 
 <p>
-So I made this little page just to ask you something.
+Maybe it's crazy making a whole page for this,
+but I wanted to ask you something properly.
 </p>
 
-<h3>Will you give us a chance?</h3>
+<h3>Nevaeh… even if there are miles between us, would you like to be my girlfriend?
+     I like you.
+Maybe we could start something and see where it goes? ❤️</h3>
 
-<button class="yes" onclick="yes()">Yes ❤️</button>
-<button class="maybe" onclick="maybe()">Maybe 🤭</button>
+<button class="yes" onclick="yes()">Yes</button>
+<button class="no" id="noBtn">No</button>
 
 <p id="response"></p>
 
@@ -95,17 +111,47 @@ So I made this little page just to ask you something.
 
 <script>
 
-function yes(){
-document.getElementById("response").innerHTML =
-"Okay wow… now I'm officially smiling like an idiot 😭❤️";
+const text="Hey Nevaeh 😊";
+let i=0;
+
+function type(){
+if(i<text.length){
+document.getElementById("title").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,80);
+}
 }
 
-function maybe(){
-document.getElementById("response").innerHTML =
-"Hmm… I'll take that as a 'convince me more' 😉";
+type();
+
+function yes(){
+document.getElementById("response").innerHTML=
+"Okay wow... now I'm smiling like an idiot. Let's make this story real ❤️";
 }
+
+const noBtn=document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover",()=>{
+const x=Math.random()*300-150;
+const y=Math.random()*200-100;
+noBtn.style.transform=`translate(${x}px,${y}px)`;
+});
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+10)+"px";
+document.body.appendChild(heart);
+
+setTimeout(()=>{heart.remove();},6000);
+}
+
+setInterval(createHeart,500);
 
 </script>
 
 </body>
 </html>
+```
